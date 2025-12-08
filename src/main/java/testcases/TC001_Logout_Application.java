@@ -16,7 +16,7 @@ public class TC001_Logout_Application extends BaseClass{
 		testCaseName = "TC001_Logout";
 	}
 	
-	@Test(dataProvider="getData")
+	@Test(dataProvider="getData",groups = "logoutApplication")
 	public void logoutApplication(String username , String password) throws InterruptedException
 	{
 		Prelogin_Page pl = new Prelogin_Page(driver);

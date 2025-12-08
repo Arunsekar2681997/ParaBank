@@ -14,7 +14,7 @@ public class TC004_Request_Loan extends BaseClass {
         testCaseName = "TC004_Request_Loan";  // Testcase name in Excel
     }
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",groups = "requestLoanFlow",dependsOnGroups = "openNewAccountFlow")
     public void requestLoanFlow(String userName, String password, String loanAmount, String downPayment, String fromAccount,String loanStatus) throws InterruptedException {
         Prelogin_Page pl = new Prelogin_Page(driver);
         pl.enterUsername(userName)

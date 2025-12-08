@@ -14,7 +14,7 @@ public class TC003_Transfer_Funds extends BaseClass {
         testCaseName = "TC003_Transfer_Funds"; // Testcase name in Excel
     }
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",groups = "transferFundsFlow",dependsOnGroups = "logoutApplication")
     public void transferFundsFlow(String userName, String password,String transferAmount, String fromAccount, String toAccount ) throws InterruptedException {
         Prelogin_Page pl = new Prelogin_Page(driver);
         pl.enterUsername(userName)
