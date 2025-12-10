@@ -11,6 +11,10 @@ public class TC002_Open_New_Account extends BaseClass {
     public void setData() {
         dataFile = "Test Data";              // Excel file name without extension
         testCaseName = "TC002_OpenNewAccount"; // EXACT match with Excel Testcase column
+        tcName="Opening New Account";
+		tcDetails = "Verify the open new account functionality";
+		testAuthor = "ArunSekar";
+		testingType = "Regression Testing";
     }
 
     @Test(dataProvider = "getData",groups = "openNewAccountFlow",dependsOnGroups = "transferFundsFlow")

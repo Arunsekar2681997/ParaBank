@@ -12,6 +12,10 @@ public class TC003_Transfer_Funds extends BaseClass {
     public void setData() {
         dataFile = "Test Data";                 // Excel filename
         testCaseName = "TC003_Transfer_Funds"; // Testcase name in Excel
+        tcName="Transfer Flow";
+		tcDetails = "Verify the transfer functionality";
+		testAuthor = "ArunSekar";
+		testingType = "Regression Testing";
     }
 
     @Test(dataProvider = "getData",groups = "transferFundsFlow",dependsOnGroups = "logoutApplication")

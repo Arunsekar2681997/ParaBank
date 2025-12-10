@@ -12,6 +12,10 @@ public class TC004_Request_Loan extends BaseClass {
     public void setData() {
         dataFile = "Test Data";                // Excel filename
         testCaseName = "TC004_Request_Loan";  // Testcase name in Excel
+        tcName="Request a Loan";
+		tcDetails = "Verify the request loan functionality";
+		testAuthor = "ArunSekar";
+		testingType = "Regression Testing";
     }
 
     @Test(dataProvider = "getData",groups = "requestLoanFlow",dependsOnGroups = "openNewAccountFlow")

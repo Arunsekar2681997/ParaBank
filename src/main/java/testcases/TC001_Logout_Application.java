@@ -14,6 +14,10 @@ public class TC001_Logout_Application extends BaseClass{
 	{
 		dataFile = "Test Data";
 		testCaseName = "TC001_Logout";
+		tcName="Logout Application";
+		tcDetails = "Verify the logout functionality";
+		testAuthor = "ArunSekar";
+		testingType = "Regression Testing";
 	}
 	
 	@Test(dataProvider="getData",groups = "logoutApplication")

@@ -7,16 +7,25 @@ import java.util.Arrays;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import utils.ReadExcelData;
 
 public class BaseClass {
-
-    public ChromeDriver driver;
-    public String dataFile;
-    public String testCaseName;
+	
+	public String tcName,tcDetails,testAuthor,testingType;
+    public static ChromeDriver driver;
+    public String dataFile,testCaseName;
+    public static ExtentReports extent;
+    public static ExtentTest test;
 
     @DataProvider(name="getData")
     public Object[][] sendData(Method method) throws IOException {
@@ -39,5 +48,28 @@ public class BaseClass {
        
             driver.quit();
         
+    }
+    
+    @BeforeSuite
+    public void reportsGenerate()
+    {
+    	ExtentHtmlReporter reports = new ExtentHtmlReporter("./reports/result.html");
+    	reports.setAppendExisting(true);		
+		extent = new ExtentReports();
+		extent.attachReporter(reports);
+    }
+    
+    @AfterSuite
+    public void closeReport()
+    {
+    	extent.flush();
+    }
+    
+    @BeforeClass
+    public void testcaseDetails()
+    {
+    	test = extent.createTest(tcName, tcDetails);
+		test.assignAuthor(testAuthor);
+		test.assignCategory(testingType);
     }
 }
