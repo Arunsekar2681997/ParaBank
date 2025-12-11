@@ -16,15 +16,25 @@ public class Dashboard_Page extends BaseClass{
 	public Prelogin_Page clickLogOutButton() throws InterruptedException
 	{
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//a[text()='Log Out']")).click();	
+		try {
+			driver.findElement(By.xpath("//a[text()='Log Out']")).click();
+			reportStep("Clicked Logout Button", "Pass");
+		} catch (Exception e) {
+			reportStep("Unable to Click Logout Button", "Fail");
+		}	
 		return new Prelogin_Page(driver);
 	}
 	
 	public OpenNewAccount_Input_Screen clickOpenNewAccount()
 	{
-		WebElement click_Open_New_Account_Menu = driver.findElement(By.xpath("//a[text()='Open New Account']"));
-		
-		click_Open_New_Account_Menu.click();
+		try {
+			WebElement click_Open_New_Account_Menu = driver.findElement(By.xpath("//a[text()='Open New Account']"));
+			click_Open_New_Account_Menu.click();
+			reportStep("Clicked Open New Account Option", "Pass");
+		} catch (Exception e) {
+			
+			reportStep("Unable to Click Open New Account Option", "Fail");
+		}
 		
 		return new OpenNewAccount_Input_Screen(driver);
 	}
@@ -32,7 +42,13 @@ public class Dashboard_Page extends BaseClass{
 	public Request_Loan_Input_Screen clickRequestLoan()
 	{
 		//click Request loan button
-			driver.findElement(By.linkText("Request Loan")).click();
+			try {
+				driver.findElement(By.linkText("Request Loan")).click();
+				reportStep("Click The Request Loan Option", "Pass");
+			} catch (Exception e) {
+			
+				reportStep("Unable to Click The Request Loan Option", "Fail");
+			}
 			
 			return new Request_Loan_Input_Screen(driver);
 	}
@@ -42,9 +58,13 @@ public class Dashboard_Page extends BaseClass{
 	{
 		Thread.sleep(3000);
 		
-		WebElement click_Transfer_Funds_Option = driver.findElement(By.xpath("//a[text()='Transfer Funds']"));
-		
-		click_Transfer_Funds_Option.click();
+		try {
+			WebElement click_Transfer_Funds_Option = driver.findElement(By.xpath("//a[text()='Transfer Funds']"));			
+			click_Transfer_Funds_Option.click();
+			reportStep("Clicked The Transfer Funds Option", "Pass");
+		} catch (Exception e) {
+			reportStep("Unable to Click The Transfer Funds Option", "Fail");
+		}
 		
 		return new Transfer_Input_Screen(driver);
 	}

@@ -72,4 +72,14 @@ public class BaseClass {
 		test.assignAuthor(testAuthor);
 		test.assignCategory(testingType);
     }
+    
+    public void reportStep(String msg,String status)
+    {
+    	if (status.equalsIgnoreCase("Pass")) {
+			test.pass(msg);
+		} 
+    	else if(status.equalsIgnoreCase("Fail")){
+			test.fail(msg);
+		}
+    }
 }
