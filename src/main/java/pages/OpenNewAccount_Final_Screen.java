@@ -16,18 +16,24 @@ public class OpenNewAccount_Final_Screen extends BaseClass {
 	{
 		Thread.sleep(3000);
 
-		WebElement verify_Confirmation_Message = driver.findElement(
-			    By.xpath("//p[contains(text(),'Congratulations')]")
-			);
+		try {
+			WebElement verify_Confirmation_Message = driver.findElement(
+				    By.xpath("//p[contains(text(),'Congratulations')]")
+				);
 
-		String confirmation_Message = verify_Confirmation_Message.getText();
-		System.out.println("Captured text: " + confirmation_Message);
-		
-		if (confirmation_Message.contains("Congratulations")) {
-			System.out.println("Account Is Created");
-		}
-		else {
-			System.out.println("Account Is Not Created");
+			String confirmation_Message = verify_Confirmation_Message.getText();
+			System.out.println("Captured text: " + confirmation_Message);
+			
+			if (confirmation_Message.contains("Congratulations")) {
+				System.out.println("Account Is Created");
+			}
+			else {
+				System.out.println("Account Is Not Created");
+			}
+			reportStep("Application navigated to Confirmation Screen", "Pass");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			reportStep("Application Not Navigated to Confirmation Screen", "Fail");
 		}
 	}
 
