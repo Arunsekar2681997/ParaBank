@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +16,7 @@ public class Transfer_Input_Screen extends BaseClass{
 		this.driver = driver;
 	}
 	
-	public Transfer_Input_Screen enterTransferAmount(String transferAmount) throws InterruptedException
+	public Transfer_Input_Screen enterTransferAmount(String transferAmount) throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);
@@ -28,7 +30,7 @@ public class Transfer_Input_Screen extends BaseClass{
 		return this;
 	}
 	
-	public Transfer_Input_Screen selectFromAccount(String fromAccount) throws InterruptedException
+	public Transfer_Input_Screen selectFromAccount(String fromAccount) throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);	
@@ -43,7 +45,7 @@ public class Transfer_Input_Screen extends BaseClass{
 		return this;
 	}
 	
-	public Transfer_Input_Screen selectToAccount(String toAccount) throws InterruptedException
+	public Transfer_Input_Screen selectToAccount(String toAccount) throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);
@@ -59,7 +61,7 @@ public class Transfer_Input_Screen extends BaseClass{
 		return this;
 	}
 	
-	public Transfer_Final_Screen clickTransferButton() throws InterruptedException
+	public Transfer_Final_Screen clickTransferButton() throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);	

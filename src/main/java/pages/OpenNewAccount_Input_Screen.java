@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +19,7 @@ public class OpenNewAccount_Input_Screen extends BaseClass{
 
 	
 	
-	public OpenNewAccount_Input_Screen selectAccountType(String accountType) throws InterruptedException
+	public OpenNewAccount_Input_Screen selectAccountType(String accountType) throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 		
@@ -35,7 +37,7 @@ public class OpenNewAccount_Input_Screen extends BaseClass{
 	}
 	
 	
-	public OpenNewAccount_Input_Screen selectOpeningAccountAmount(String accountAmount)
+	public OpenNewAccount_Input_Screen selectOpeningAccountAmount(String accountAmount) throws IOException
 	{
 		try {
 			WebElement select_Account_Amount = driver.findElement(By.id("fromAccountId"));
@@ -52,7 +54,7 @@ public class OpenNewAccount_Input_Screen extends BaseClass{
 	}
 	
 	
-	public OpenNewAccount_Final_Screen clickOpenNewAccountOption() throws InterruptedException
+	public OpenNewAccount_Final_Screen clickOpenNewAccountOption() throws InterruptedException, IOException
 	{
 		try {
 			WebElement click_Open_New_Account_Option = driver.findElement(By.xpath("//input[@value='Open New Account']"));

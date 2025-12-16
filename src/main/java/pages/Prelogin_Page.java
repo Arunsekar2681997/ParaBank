@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,7 @@ public class Prelogin_Page extends BaseClass {
 		this.driver = driver;
 	}
 	
-	public Prelogin_Page enterUsername(String uName)
+	public Prelogin_Page enterUsername(String uName) throws IOException
 	{
 		try {
 			WebElement enter_Username = driver.findElement(By.xpath("//input[@name='username']"));		
@@ -25,7 +27,7 @@ public class Prelogin_Page extends BaseClass {
 		return this;
 	}
 	
-	public Prelogin_Page enterPassword(String password)
+	public Prelogin_Page enterPassword(String password) throws IOException
 	{
 		try {
 			WebElement enter_Password = driver.findElement(By.xpath("//input[@name='password']"));
@@ -37,7 +39,7 @@ public class Prelogin_Page extends BaseClass {
 		return this;
 	}
 	
-	public Dashboard_Page clickLoginButton()
+	public Dashboard_Page clickLoginButton() throws IOException
 	{
 		try {
 			WebElement click_Login_Button = driver.findElement(By.xpath("//input[@value='Log In']"));		
@@ -50,7 +52,7 @@ public class Prelogin_Page extends BaseClass {
 	}
 	
 	
-	public Prelogin_Page getPageTitle() throws InterruptedException
+	public Prelogin_Page getPageTitle() throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);

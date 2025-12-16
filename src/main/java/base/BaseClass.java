@@ -1,10 +1,13 @@
 package base;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Arrays;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -15,6 +18,7 @@ import org.testng.annotations.DataProvider;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import utils.ReadExcelData;
@@ -73,13 +77,28 @@ public class BaseClass {
 		test.assignCategory(testingType);
     }
     
-    public void reportStep(String msg,String status)
-    {
-    	if (status.equalsIgnoreCase("Pass")) {
-			test.pass(msg);
-		} 
-    	else if(status.equalsIgnoreCase("Fail")){
-			test.fail(msg);
-		}
+    
+    public void reportStep(String msg, String status) throws IOException {
+
+        String screenshot = "../snapshot/" + takeScreenshot() + ".png";
+
+        if (status.equalsIgnoreCase("Pass")) {
+            test.pass(msg,
+                MediaEntityBuilder.createScreenCaptureFromPath(screenshot).build());
+        } 
+        else if (status.equalsIgnoreCase("Fail")) {
+            test.fail(msg,
+                MediaEntityBuilder.createScreenCaptureFromPath(screenshot).build());
+        }
     }
+
+    
+    public String takeScreenshot() throws IOException {
+        String screenshotName = "img_" + System.currentTimeMillis();
+        File src = driver.getScreenshotAs(OutputType.FILE);
+        File dst = new File("./snapshot/" + screenshotName + ".png");
+        FileUtils.copyFile(src, dst);
+        return screenshotName;
+    }
+
 }

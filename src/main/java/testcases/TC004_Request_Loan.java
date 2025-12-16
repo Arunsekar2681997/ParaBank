@@ -1,5 +1,7 @@
 package testcases;
 
+import java.io.IOException;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,7 +21,7 @@ public class TC004_Request_Loan extends BaseClass {
     }
 
     @Test(dataProvider = "getData",groups = "requestLoanFlow",dependsOnGroups = "openNewAccountFlow")
-    public void requestLoanFlow(String userName, String password, String loanAmount, String downPayment, String fromAccount,String loanStatus) throws InterruptedException {
+    public void requestLoanFlow(String userName, String password, String loanAmount, String downPayment, String fromAccount,String loanStatus) throws InterruptedException, IOException {
         Prelogin_Page pl = new Prelogin_Page(driver);
         pl.enterUsername(userName)
           .enterPassword(password)

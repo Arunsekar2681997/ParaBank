@@ -1,5 +1,7 @@
 package testcases;
 
+import java.io.IOException;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -21,7 +23,7 @@ public class TC001_Logout_Application extends BaseClass{
 	}
 	
 	@Test(dataProvider="getData",groups = "logoutApplication")
-	public void logoutApplication(String username , String password) throws InterruptedException
+	public void logoutApplication(String username , String password) throws InterruptedException, IOException
 	{
 		Prelogin_Page pl = new Prelogin_Page(driver);
 		pl.enterUsername(username)

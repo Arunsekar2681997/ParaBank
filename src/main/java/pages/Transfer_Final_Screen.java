@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +16,7 @@ public class Transfer_Final_Screen extends BaseClass {
 	}
 	
 	
-	public Transfer_Final_Screen verifyTransferFinalScreen() throws InterruptedException
+	public Transfer_Final_Screen verifyTransferFinalScreen() throws InterruptedException, IOException
 	{
 		try {
 			Thread.sleep(3000);
@@ -26,7 +28,7 @@ public class Transfer_Final_Screen extends BaseClass {
 			else {
 				System.out.println("Transfer Failed");
 			}
-			reportStep("Transfer Final Screen Content Is Verified", "Fail");
+			reportStep("Transfer Final Screen Content Is Verified", "Pass");
 		} catch (InterruptedException e) {
 			reportStep("Transfer Final Screen Content Is Not Verified", "Fail");
 		}

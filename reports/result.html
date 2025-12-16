@@ -1,0 +1,2003 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Dec 16, 2025 08:54:28 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>RegressionTesting</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='90%'><span class='strong'>18</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='10%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='98.71%'><span class='strong'>153</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='1.29%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Logout Application</span>
+						<span class='test-time'>Dec 12, 2025 08:30:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 12, 2025 08:30:02 PM</span>
+	<span class='label end-time'>Dec 12, 2025 08:30:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the logout functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:09 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:09 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:09 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:13 PM</td>
+					<td class='step-details'>Clicked Logout Button</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:16 PM</td>
+					<td class='step-details'>Logged In To The Application</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Transfer Flow</span>
+						<span class='test-time'>Dec 12, 2025 08:30:16 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 12, 2025 08:30:16 PM</span>
+	<span class='label end-time'>Dec 12, 2025 08:30:43 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 27s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the transfer functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:24 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:24 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:24 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:28 PM</td>
+					<td class='step-details'>Clicked The Transfer Funds Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:31 PM</td>
+					<td class='step-details'>Transfer Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:34 PM</td>
+					<td class='step-details'>From Account Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:37 PM</td>
+					<td class='step-details'>To Account Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:40 PM</td>
+					<td class='step-details'>Tranfer Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>8:30:43 PM</td>
+					<td class='step-details'>Transfer Final Screen Content Is Verified</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>Opening New Account</span>
+						<span class='test-time'>Dec 12, 2025 08:30:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 12, 2025 08:30:44 PM</span>
+	<span class='label end-time'>Dec 12, 2025 08:30:59 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the open new account functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:48 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:48 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:48 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:50 PM</td>
+					<td class='step-details'>Clicked Open New Account Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:53 PM</td>
+					<td class='step-details'>Account Type Is Selected Open New Account Input Screen</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:53 PM</td>
+					<td class='step-details'>Opening Account Amount Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:56 PM</td>
+					<td class='step-details'>Open New Account Option Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:30:59 PM</td>
+					<td class='step-details'>Application navigated to Confirmation Screen</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>Request a Loan</span>
+						<span class='test-time'>Dec 12, 2025 08:31:00 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 12, 2025 08:31:00 PM</span>
+	<span class='label end-time'>Dec 12, 2025 08:31:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the request loan functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:05 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:05 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:05 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:10 PM</td>
+					<td class='step-details'>Click The Request Loan Option</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>8:31:10 PM</td>
+					<td class='step-details'>Loan Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:10 PM</td>
+					<td class='step-details'>Down Payment Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:10 PM</td>
+					<td class='step-details'>Loan From Amount Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:10 PM</td>
+					<td class='step-details'>Loan Apply Now Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:31:13 PM</td>
+					<td class='step-details'>Loan Apply Flow Is Success</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>Logout Application</span>
+						<span class='test-time'>Dec 15, 2025 07:43:57 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 15, 2025 07:43:57 PM</span>
+	<span class='label end-time'>Dec 15, 2025 07:44:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the logout functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:12 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:12 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:13 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:20 PM</td>
+					<td class='step-details'>Clicked Logout Button</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:23 PM</td>
+					<td class='step-details'>Logged In To The Application</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>Transfer Flow</span>
+						<span class='test-time'>Dec 15, 2025 07:44:24 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 15, 2025 07:44:24 PM</span>
+	<span class='label end-time'>Dec 15, 2025 07:44:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 24s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the transfer functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:29 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:29 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:29 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:33 PM</td>
+					<td class='step-details'>Clicked The Transfer Funds Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:36 PM</td>
+					<td class='step-details'>Transfer Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:39 PM</td>
+					<td class='step-details'>From Account Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:42 PM</td>
+					<td class='step-details'>To Account Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:45 PM</td>
+					<td class='step-details'>Tranfer Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:48 PM</td>
+					<td class='step-details'>Transfer Final Screen Content Is Verified</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>Opening New Account</span>
+						<span class='test-time'>Dec 15, 2025 07:44:49 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 15, 2025 07:44:49 PM</span>
+	<span class='label end-time'>Dec 15, 2025 07:45:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the open new account functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:54 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:54 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:54 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:44:56 PM</td>
+					<td class='step-details'>Clicked Open New Account Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:00 PM</td>
+					<td class='step-details'>Account Type Is Selected Open New Account Input Screen</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:00 PM</td>
+					<td class='step-details'>Opening Account Amount Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:03 PM</td>
+					<td class='step-details'>Open New Account Option Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:06 PM</td>
+					<td class='step-details'>Application navigated to Confirmation Screen</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>Request a Loan</span>
+						<span class='test-time'>Dec 15, 2025 07:45:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 15, 2025 07:45:07 PM</span>
+	<span class='label end-time'>Dec 15, 2025 07:45:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 24s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the request loan functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:22 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:22 PM</td>
+					<td class='step-details'>Password Entered Successfully</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:22 PM</td>
+					<td class='step-details'>Login Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:28 PM</td>
+					<td class='step-details'>Click The Request Loan Option</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:28 PM</td>
+					<td class='step-details'>Loan Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:28 PM</td>
+					<td class='step-details'>Down Payment Amount Is Entered</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:28 PM</td>
+					<td class='step-details'>Loan From Amount Is Selected</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:28 PM</td>
+					<td class='step-details'>Loan Apply Now Button Is Clicked</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>7:45:31 PM</td>
+					<td class='step-details'>Loan Apply Flow Is Success</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>Logout Application</span>
+						<span class='test-time'>Dec 16, 2025 08:36:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:36:56 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:37:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 27s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the logout functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:12 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snaps/img14015.png" width="10%" src="../snaps/img14015.png" data-src="../snaps/img14015.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:13 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snaps/img12699.png" width="10%" src="../snaps/img12699.png" data-src="../snaps/img12699.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:15 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snaps/img15433.png" width="10%" src="../snaps/img15433.png" data-src="../snaps/img15433.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:20 PM</td>
+					<td class='step-details'>Clicked Logout Button<img data-featherlight="../snaps/img13130.png" width="10%" src="../snaps/img13130.png" data-src="../snaps/img13130.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:23 PM</td>
+					<td class='step-details'>Logged In To The Application<img data-featherlight="../snaps/img11344.png" width="10%" src="../snaps/img11344.png" data-src="../snaps/img11344.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>Transfer Flow</span>
+						<span class='test-time'>Dec 16, 2025 08:37:23 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:37:23 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:38:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 53s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the transfer functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:30 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snaps/img10401.png" width="10%" src="../snaps/img10401.png" data-src="../snaps/img10401.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:30 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snaps/img14424.png" width="10%" src="../snaps/img14424.png" data-src="../snaps/img14424.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:32 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snaps/img11132.png" width="10%" src="../snaps/img11132.png" data-src="../snaps/img11132.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:36 PM</td>
+					<td class='step-details'>Clicked The Transfer Funds Option<img data-featherlight="../snaps/img19874.png" width="10%" src="../snaps/img19874.png" data-src="../snaps/img19874.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:46 PM</td>
+					<td class='step-details'>Transfer Amount Is Entered<img data-featherlight="../snaps/img15811.png" width="10%" src="../snaps/img15811.png" data-src="../snaps/img15811.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:37:56 PM</td>
+					<td class='step-details'>From Account Is Selected<img data-featherlight="../snaps/img16076.png" width="10%" src="../snaps/img16076.png" data-src="../snaps/img16076.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:01 PM</td>
+					<td class='step-details'>To Account Is Selected<img data-featherlight="../snaps/img10707.png" width="10%" src="../snaps/img10707.png" data-src="../snaps/img10707.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:13 PM</td>
+					<td class='step-details'>Tranfer Button Is Clicked<img data-featherlight="../snaps/img13438.png" width="10%" src="../snaps/img13438.png" data-src="../snaps/img13438.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:16 PM</td>
+					<td class='step-details'>Transfer Final Screen Content Is Verified<img data-featherlight="../snaps/img10171.png" width="10%" src="../snaps/img10171.png" data-src="../snaps/img10171.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>Opening New Account</span>
+						<span class='test-time'>Dec 16, 2025 08:38:17 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:38:17 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:38:46 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 29s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the open new account functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:21 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snaps/img15712.png" width="10%" src="../snaps/img15712.png" data-src="../snaps/img15712.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:21 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snaps/img19526.png" width="10%" src="../snaps/img19526.png" data-src="../snaps/img19526.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:23 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snaps/img15106.png" width="10%" src="../snaps/img15106.png" data-src="../snaps/img15106.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:23 PM</td>
+					<td class='step-details'>Clicked Open New Account Option<img data-featherlight="../snaps/img14292.png" width="10%" src="../snaps/img14292.png" data-src="../snaps/img14292.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:34 PM</td>
+					<td class='step-details'>Account Type Is Selected Open New Account Input Screen<img data-featherlight="../snaps/img13764.png" width="10%" src="../snaps/img13764.png" data-src="../snaps/img13764.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:35 PM</td>
+					<td class='step-details'>Opening Account Amount Is Selected<img data-featherlight="../snaps/img17506.png" width="10%" src="../snaps/img17506.png" data-src="../snaps/img17506.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:43 PM</td>
+					<td class='step-details'>Open New Account Option Is Clicked<img data-featherlight="../snaps/img11310.png" width="10%" src="../snaps/img11310.png" data-src="../snaps/img11310.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:46 PM</td>
+					<td class='step-details'>Application navigated to Confirmation Screen<img data-featherlight="../snaps/img10019.png" width="10%" src="../snaps/img10019.png" data-src="../snaps/img10019.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>Request a Loan</span>
+						<span class='test-time'>Dec 16, 2025 08:38:47 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:38:47 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:38:59 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the request loan functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:51 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snaps/img18077.png" width="10%" src="../snaps/img18077.png" data-src="../snaps/img18077.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:51 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snaps/img16464.png" width="10%" src="../snaps/img16464.png" data-src="../snaps/img16464.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:52 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snaps/img10942.png" width="10%" src="../snaps/img10942.png" data-src="../snaps/img10942.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:53 PM</td>
+					<td class='step-details'>Click The Request Loan Option<img data-featherlight="../snaps/img14314.png" width="10%" src="../snaps/img14314.png" data-src="../snaps/img14314.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:53 PM</td>
+					<td class='step-details'>Loan Amount Is Entered<img data-featherlight="../snaps/img17932.png" width="10%" src="../snaps/img17932.png" data-src="../snaps/img17932.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:53 PM</td>
+					<td class='step-details'>Down Payment Amount Is Entered<img data-featherlight="../snaps/img12885.png" width="10%" src="../snaps/img12885.png" data-src="../snaps/img12885.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:55 PM</td>
+					<td class='step-details'>Loan From Amount Is Selected<img data-featherlight="../snaps/img16513.png" width="10%" src="../snaps/img16513.png" data-src="../snaps/img16513.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:56 PM</td>
+					<td class='step-details'>Loan Apply Now Button Is Clicked<img data-featherlight="../snaps/img10767.png" width="10%" src="../snaps/img10767.png" data-src="../snaps/img10767.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:38:59 PM</td>
+					<td class='step-details'>Loan Apply Flow Is Success<img data-featherlight="../snaps/img10996.png" width="10%" src="../snaps/img10996.png" data-src="../snaps/img10996.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>Logout Application</span>
+						<span class='test-time'>Dec 16, 2025 08:43:01 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:43:01 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:43:18 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the logout functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:09 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snapshot/img16258.png" width="10%" src="../snapshot/img16258.png" data-src="../snapshot/img16258.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:10 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snapshot/img16218.png" width="10%" src="../snapshot/img16218.png" data-src="../snapshot/img16218.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:11 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snapshot/img13512.png" width="10%" src="../snapshot/img13512.png" data-src="../snapshot/img13512.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:15 PM</td>
+					<td class='step-details'>Clicked Logout Button<img data-featherlight="../snapshot/img12438.png" width="10%" src="../snapshot/img12438.png" data-src="../snapshot/img12438.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:18 PM</td>
+					<td class='step-details'>Logged In To The Application<img data-featherlight="../snapshot/img11906.png" width="10%" src="../snapshot/img11906.png" data-src="../snapshot/img11906.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>Transfer Flow</span>
+						<span class='test-time'>Dec 16, 2025 08:43:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:43:18 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:44:22 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 4s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the transfer functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:23 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snapshot/img19260.png" width="10%" src="../snapshot/img19260.png" data-src="../snapshot/img19260.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:23 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snapshot/img19892.png" width="10%" src="../snapshot/img19892.png" data-src="../snapshot/img19892.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:24 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snapshot/img11845.png" width="10%" src="../snapshot/img11845.png" data-src="../snapshot/img11845.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:28 PM</td>
+					<td class='step-details'>Clicked The Transfer Funds Option<img data-featherlight="../snapshot/img13341.png" width="10%" src="../snapshot/img13341.png" data-src="../snapshot/img13341.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:38 PM</td>
+					<td class='step-details'>Transfer Amount Is Entered<img data-featherlight="../snapshot/img16379.png" width="10%" src="../snapshot/img16379.png" data-src="../snapshot/img16379.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:43:42 PM</td>
+					<td class='step-details'>From Account Is Selected<img data-featherlight="../snapshot/img12115.png" width="10%" src="../snapshot/img12115.png" data-src="../snapshot/img12115.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:01 PM</td>
+					<td class='step-details'>To Account Is Selected<img data-featherlight="../snapshot/img15329.png" width="10%" src="../snapshot/img15329.png" data-src="../snapshot/img15329.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:18 PM</td>
+					<td class='step-details'>Tranfer Button Is Clicked<img data-featherlight="../snapshot/img10438.png" width="10%" src="../snapshot/img10438.png" data-src="../snapshot/img10438.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:22 PM</td>
+					<td class='step-details'>Transfer Final Screen Content Is Verified<img data-featherlight="../snapshot/img16967.png" width="10%" src="../snapshot/img16967.png" data-src="../snapshot/img16967.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>Opening New Account</span>
+						<span class='test-time'>Dec 16, 2025 08:44:22 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:44:22 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:44:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the open new account functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:27 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snapshot/img19730.png" width="10%" src="../snapshot/img19730.png" data-src="../snapshot/img19730.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:27 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snapshot/img11802.png" width="10%" src="../snapshot/img11802.png" data-src="../snapshot/img11802.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:28 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snapshot/img19095.png" width="10%" src="../snapshot/img19095.png" data-src="../snapshot/img19095.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:29 PM</td>
+					<td class='step-details'>Clicked Open New Account Option<img data-featherlight="../snapshot/img19436.png" width="10%" src="../snapshot/img19436.png" data-src="../snapshot/img19436.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:39 PM</td>
+					<td class='step-details'>Account Type Is Selected Open New Account Input Screen<img data-featherlight="../snapshot/img19799.png" width="10%" src="../snapshot/img19799.png" data-src="../snapshot/img19799.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:40 PM</td>
+					<td class='step-details'>Opening Account Amount Is Selected<img data-featherlight="../snapshot/img18157.png" width="10%" src="../snapshot/img18157.png" data-src="../snapshot/img18157.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:45 PM</td>
+					<td class='step-details'>Open New Account Option Is Clicked<img data-featherlight="../snapshot/img18115.png" width="10%" src="../snapshot/img18115.png" data-src="../snapshot/img18115.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:48 PM</td>
+					<td class='step-details'>Application navigated to Confirmation Screen<img data-featherlight="../snapshot/img11803.png" width="10%" src="../snapshot/img11803.png" data-src="../snapshot/img11803.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>Request a Loan</span>
+						<span class='test-time'>Dec 16, 2025 08:44:49 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:44:49 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:45:10 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+0ms</span>
+</div>
+	<div class='test-desc'>Verify the request loan functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:57 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight="../snapshot/img10695.png" width="10%" src="../snapshot/img10695.png" data-src="../snapshot/img10695.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:44:58 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight="../snapshot/img18822.png" width="10%" src="../snapshot/img18822.png" data-src="../snapshot/img18822.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:02 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight="../snapshot/img18095.png" width="10%" src="../snapshot/img18095.png" data-src="../snapshot/img18095.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:03 PM</td>
+					<td class='step-details'>Click The Request Loan Option<img data-featherlight="../snapshot/img12977.png" width="10%" src="../snapshot/img12977.png" data-src="../snapshot/img12977.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:04 PM</td>
+					<td class='step-details'>Loan Amount Is Entered<img data-featherlight="../snapshot/img13052.png" width="10%" src="../snapshot/img13052.png" data-src="../snapshot/img13052.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:04 PM</td>
+					<td class='step-details'>Down Payment Amount Is Entered<img data-featherlight="../snapshot/img13703.png" width="10%" src="../snapshot/img13703.png" data-src="../snapshot/img13703.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:05 PM</td>
+					<td class='step-details'>Loan From Amount Is Selected<img data-featherlight="../snapshot/img18178.png" width="10%" src="../snapshot/img18178.png" data-src="../snapshot/img18178.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:07 PM</td>
+					<td class='step-details'>Loan Apply Now Button Is Clicked<img data-featherlight="../snapshot/img13197.png" width="10%" src="../snapshot/img13197.png" data-src="../snapshot/img13197.png"></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:45:10 PM</td>
+					<td class='step-details'>Loan Apply Flow Is Success<img data-featherlight="../snapshot/img13651.png" width="10%" src="../snapshot/img13651.png" data-src="../snapshot/img13651.png"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>Logout Application</span>
+						<span class='test-time'>Dec 16, 2025 08:54:28 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:54:28 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:54:46 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 18s+241ms</span>
+</div>
+	<div class='test-desc'>Verify the logout functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:35 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight='../snapshot/img_1765898674958.png' width='10%' src='../snapshot/img_1765898674958.png' data-src='../snapshot/img_1765898674958.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:36 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight='../snapshot/img_1765898675298.png' width='10%' src='../snapshot/img_1765898675298.png' data-src='../snapshot/img_1765898675298.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:39 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight='../snapshot/img_1765898676941.png' width='10%' src='../snapshot/img_1765898676941.png' data-src='../snapshot/img_1765898676941.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:43 PM</td>
+					<td class='step-details'>Clicked Logout Button<img data-featherlight='../snapshot/img_1765898683262.png' width='10%' src='../snapshot/img_1765898683262.png' data-src='../snapshot/img_1765898683262.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:46 PM</td>
+					<td class='step-details'>Logged In To The Application<img data-featherlight='../snapshot/img_1765898686546.png' width='10%' src='../snapshot/img_1765898686546.png' data-src='../snapshot/img_1765898686546.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>Transfer Flow</span>
+						<span class='test-time'>Dec 16, 2025 08:54:47 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:54:47 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:56:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 16s+292ms</span>
+</div>
+	<div class='test-desc'>Verify the transfer functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:53 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight='../snapshot/img_1765898693201.png' width='10%' src='../snapshot/img_1765898693201.png' data-src='../snapshot/img_1765898693201.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:53 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight='../snapshot/img_1765898693518.png' width='10%' src='../snapshot/img_1765898693518.png' data-src='../snapshot/img_1765898693518.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:55 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight='../snapshot/img_1765898693833.png' width='10%' src='../snapshot/img_1765898693833.png' data-src='../snapshot/img_1765898693833.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:54:59 PM</td>
+					<td class='step-details'>Clicked The Transfer Funds Option<img data-featherlight='../snapshot/img_1765898699803.png' width='10%' src='../snapshot/img_1765898699803.png' data-src='../snapshot/img_1765898699803.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:55:10 PM</td>
+					<td class='step-details'>Transfer Amount Is Entered<img data-featherlight='../snapshot/img_1765898703130.png' width='10%' src='../snapshot/img_1765898703130.png' data-src='../snapshot/img_1765898703130.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:55:14 PM</td>
+					<td class='step-details'>From Account Is Selected<img data-featherlight='../snapshot/img_1765898713509.png' width='10%' src='../snapshot/img_1765898713509.png' data-src='../snapshot/img_1765898713509.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:55:35 PM</td>
+					<td class='step-details'>To Account Is Selected<img data-featherlight='../snapshot/img_1765898717851.png' width='10%' src='../snapshot/img_1765898717851.png' data-src='../snapshot/img_1765898717851.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:00 PM</td>
+					<td class='step-details'>Tranfer Button Is Clicked<img data-featherlight='../snapshot/img_1765898738203.png' width='10%' src='../snapshot/img_1765898738203.png' data-src='../snapshot/img_1765898738203.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:03 PM</td>
+					<td class='step-details'>Transfer Final Screen Content Is Verified<img data-featherlight='../snapshot/img_1765898763538.png' width='10%' src='../snapshot/img_1765898763538.png' data-src='../snapshot/img_1765898763538.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>Opening New Account</span>
+						<span class='test-time'>Dec 16, 2025 08:56:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:56:04 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:56:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 33s+189ms</span>
+</div>
+	<div class='test-desc'>Verify the open new account functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:10 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight='../snapshot/img_1765898769955.png' width='10%' src='../snapshot/img_1765898769955.png' data-src='../snapshot/img_1765898769955.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:10 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight='../snapshot/img_1765898770228.png' width='10%' src='../snapshot/img_1765898770228.png' data-src='../snapshot/img_1765898770228.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:15 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight='../snapshot/img_1765898775229.png' width='10%' src='../snapshot/img_1765898775229.png' data-src='../snapshot/img_1765898775229.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:18 PM</td>
+					<td class='step-details'>Clicked Open New Account Option<img data-featherlight='../snapshot/img_1765898777887.png' width='10%' src='../snapshot/img_1765898777887.png' data-src='../snapshot/img_1765898777887.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:28 PM</td>
+					<td class='step-details'>Account Type Is Selected Open New Account Input Screen<img data-featherlight='../snapshot/img_1765898781208.png' width='10%' src='../snapshot/img_1765898781208.png' data-src='../snapshot/img_1765898781208.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:29 PM</td>
+					<td class='step-details'>Opening Account Amount Is Selected<img data-featherlight='../snapshot/img_1765898788574.png' width='10%' src='../snapshot/img_1765898788574.png' data-src='../snapshot/img_1765898788574.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:34 PM</td>
+					<td class='step-details'>Open New Account Option Is Clicked<img data-featherlight='../snapshot/img_1765898793074.png' width='10%' src='../snapshot/img_1765898793074.png' data-src='../snapshot/img_1765898793074.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:37 PM</td>
+					<td class='step-details'>Application navigated to Confirmation Screen<img data-featherlight='../snapshot/img_1765898797304.png' width='10%' src='../snapshot/img_1765898797304.png' data-src='../snapshot/img_1765898797304.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>Request a Loan</span>
+						<span class='test-time'>Dec 16, 2025 08:56:38 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 16, 2025 08:56:38 PM</span>
+	<span class='label end-time'>Dec 16, 2025 08:56:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+696ms</span>
+</div>
+	<div class='test-desc'>Verify the request loan functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>RegressionTesting</span>
+			</div>
+			<div class='author-list'>
+				<span class='author label white-text'>ArunSekar</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:42 PM</td>
+					<td class='step-details'>User Name Is Entered Successfully<img data-featherlight='../snapshot/img_1765898802285.png' width='10%' src='../snapshot/img_1765898802285.png' data-src='../snapshot/img_1765898802285.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:42 PM</td>
+					<td class='step-details'>Password Entered Successfully<img data-featherlight='../snapshot/img_1765898802610.png' width='10%' src='../snapshot/img_1765898802610.png' data-src='../snapshot/img_1765898802610.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:43 PM</td>
+					<td class='step-details'>Login Button Is Clicked<img data-featherlight='../snapshot/img_1765898802888.png' width='10%' src='../snapshot/img_1765898802888.png' data-src='../snapshot/img_1765898802888.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:44 PM</td>
+					<td class='step-details'>Click The Request Loan Option<img data-featherlight='../snapshot/img_1765898804453.png' width='10%' src='../snapshot/img_1765898804453.png' data-src='../snapshot/img_1765898804453.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:44 PM</td>
+					<td class='step-details'>Loan Amount Is Entered<img data-featherlight='../snapshot/img_1765898804720.png' width='10%' src='../snapshot/img_1765898804720.png' data-src='../snapshot/img_1765898804720.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:46 PM</td>
+					<td class='step-details'>Down Payment Amount Is Entered<img data-featherlight='../snapshot/img_1765898804972.png' width='10%' src='../snapshot/img_1765898804972.png' data-src='../snapshot/img_1765898804972.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:47 PM</td>
+					<td class='step-details'>Loan From Amount Is Selected<img data-featherlight='../snapshot/img_1765898806531.png' width='10%' src='../snapshot/img_1765898806531.png' data-src='../snapshot/img_1765898806531.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:49 PM</td>
+					<td class='step-details'>Loan Apply Now Button Is Clicked<img data-featherlight='../snapshot/img_1765898808028.png' width='10%' src='../snapshot/img_1765898808028.png' data-src='../snapshot/img_1765898808028.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>8:56:52 PM</td>
+					<td class='step-details'>Loan Apply Flow Is Success<img data-featherlight='../snapshot/img_1765898812547.png' width='10%' src='../snapshot/img_1765898812547.png' data-src='../snapshot/img_1765898812547.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>RegressionTesting</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 16, 2025 08:54:28 PM</td>
+										<td class='linked' test-id='17'>Logout Application</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 16, 2025 08:54:47 PM</td>
+										<td class='linked' test-id='18'>Transfer Flow</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 16, 2025 08:56:04 PM</td>
+										<td class='linked' test-id='19'>Opening New Account</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 16, 2025 08:56:38 PM</td>
+										<td class='linked' test-id='20'>Request a Loan</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>ArunSekar</span>
+                                <span class='author-status right'>
+                                        <span class='label pass'>4</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 4</span>
+                                    
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Dec 16, 2025 08:54:28 PM</td>
+                                                <td class='linked' test-id='17'>Logout Application</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 16, 2025 08:54:47 PM</td>
+                                                <td class='linked' test-id='18'>Transfer Flow</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 16, 2025 08:56:04 PM</td>
+                                                <td class='linked' test-id='19'>Opening New Account</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dec 16, 2025 08:56:38 PM</td>
+                                                <td class='linked' test-id='20'>Request a Loan</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>20</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>155</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Dec 16, 2025 08:54:28 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Dec 16, 2025 08:56:53 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 2m 25s+257ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>RegressionTesting</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 18,
+				failParent: 2,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 2,
+				
+				passChild: 153,
+				failChild: 2,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 2,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

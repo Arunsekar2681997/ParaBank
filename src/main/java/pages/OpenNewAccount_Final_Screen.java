@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +14,7 @@ public class OpenNewAccount_Final_Screen extends BaseClass {
 		this.driver = driver;
 	}
 	
-	public void verifyOpenNewAccountOpening() throws InterruptedException
+	public void verifyOpenNewAccountOpening() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 

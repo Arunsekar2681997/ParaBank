@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,7 @@ public class Dashboard_Page extends BaseClass{
 		this.driver = driver;
 	}
 	
-	public Prelogin_Page clickLogOutButton() throws InterruptedException
+	public Prelogin_Page clickLogOutButton() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 		try {
@@ -25,7 +27,7 @@ public class Dashboard_Page extends BaseClass{
 		return new Prelogin_Page(driver);
 	}
 	
-	public OpenNewAccount_Input_Screen clickOpenNewAccount()
+	public OpenNewAccount_Input_Screen clickOpenNewAccount() throws IOException
 	{
 		try {
 			WebElement click_Open_New_Account_Menu = driver.findElement(By.xpath("//a[text()='Open New Account']"));
@@ -39,7 +41,7 @@ public class Dashboard_Page extends BaseClass{
 		return new OpenNewAccount_Input_Screen(driver);
 	}
 	
-	public Request_Loan_Input_Screen clickRequestLoan()
+	public Request_Loan_Input_Screen clickRequestLoan() throws IOException
 	{
 		//click Request loan button
 			try {
@@ -54,7 +56,7 @@ public class Dashboard_Page extends BaseClass{
 	}
 	
 	
-	public Transfer_Input_Screen clickTransferFundsOption() throws InterruptedException
+	public Transfer_Input_Screen clickTransferFundsOption() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 		

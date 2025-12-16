@@ -1,5 +1,7 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,7 @@ public class Request_Loan_Final_Screen extends BaseClass{
 		this.driver = driver;
 	}
 	
-	public Request_Loan_Final_Screen verifyLoanApplyFinalScreen(String loanStatusValue) throws InterruptedException
+	public Request_Loan_Final_Screen verifyLoanApplyFinalScreen(String loanStatusValue) throws InterruptedException, IOException
 	{
 		//Verify the final screen
 				try {
