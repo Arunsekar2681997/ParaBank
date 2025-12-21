@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ReadExcelData {
+public class ExcelUtils {
 
     public static Object[][] readData(String dataFile, String testCaseName) throws IOException {
 

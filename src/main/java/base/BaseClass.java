@@ -1,6 +1,9 @@
 package base;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
@@ -21,7 +24,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-import utils.ReadExcelData;
+import utils.ExcelUtils;
 
 public class BaseClass {
 	
@@ -30,10 +33,13 @@ public class BaseClass {
     public String dataFile,testCaseName;
     public static ExtentReports extent;
     public static ExtentTest test;
+    public static String reportFolder;
+    public static String screenshotFolder;
+
 
     @DataProvider(name="getData")
     public Object[][] sendData(Method method) throws IOException {
-        Object[][] data = ReadExcelData.readData(dataFile, testCaseName);
+        Object[][] data = ExcelUtils.readData(dataFile, testCaseName);
         System.out.println("Data for " + testCaseName + ": " + Arrays.deepToString(data));
         return data;
     }
@@ -55,13 +61,24 @@ public class BaseClass {
     }
     
     @BeforeSuite
-    public void reportsGenerate()
-    {
-    	ExtentHtmlReporter reports = new ExtentHtmlReporter("./reports/result.html");
-    	reports.setAppendExisting(true);		
-		extent = new ExtentReports();
-		extent.attachReporter(reports);
+    public void reportsGenerate() throws IOException {
+
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        reportFolder = "./reports/Run_" + timestamp;
+        screenshotFolder = reportFolder + "/screenshots";
+
+        // Create folders
+        Files.createDirectories(Paths.get(screenshotFolder));
+
+        // Create report inside same folder
+        ExtentHtmlReporter reports =
+                new ExtentHtmlReporter(reportFolder + "/result.html");
+
+        reports.setAppendExisting(false); // overwrite
+        extent = new ExtentReports();
+        extent.attachReporter(reports);
     }
+
     
     @AfterSuite
     public void closeReport()
@@ -80,25 +97,28 @@ public class BaseClass {
     
     public void reportStep(String msg, String status) throws IOException {
 
-        String screenshot = "../snapshot/" + takeScreenshot() + ".png";
+        String screenshotPath = "screenshots/" + takeScreenshot() + ".png";
 
         if (status.equalsIgnoreCase("Pass")) {
             test.pass(msg,
-                MediaEntityBuilder.createScreenCaptureFromPath(screenshot).build());
+                MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
         } 
         else if (status.equalsIgnoreCase("Fail")) {
             test.fail(msg,
-                MediaEntityBuilder.createScreenCaptureFromPath(screenshot).build());
+                MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
         }
     }
 
     
     public String takeScreenshot() throws IOException {
+
         String screenshotName = "img_" + System.currentTimeMillis();
         File src = driver.getScreenshotAs(OutputType.FILE);
-        File dst = new File("./snapshot/" + screenshotName + ".png");
+        File dst = new File(screenshotFolder + "/" + screenshotName + ".png");
         FileUtils.copyFile(src, dst);
+
         return screenshotName;
     }
+
 
 }

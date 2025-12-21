@@ -3,14 +3,50 @@
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.TC002_Open_New_Account">
+      <class name="testcases.TC004_Request_Loan">
         <methods>
+          <include name="closeReport"/>
+          <include name="reportsGenerate"/>
           <include name="postCond"/>
           <include name="preCond"/>
-          <include name="openNewAccountFlow" invocation-numbers="0"/>
+          <include name="requestLoanFlow"/>
+          <include name="testcaseDetails"/>
+          <include name="setData"/>
+        </methods>
+      </class> <!-- testcases.TC004_Request_Loan -->
+      <class name="testcases.TC002_Open_New_Account">
+        <methods>
+          <include name="closeReport"/>
+          <include name="reportsGenerate"/>
+          <include name="postCond"/>
+          <include name="preCond"/>
+          <include name="testcaseDetails"/>
+          <include name="openNewAccountFlow"/>
           <include name="setData"/>
         </methods>
       </class> <!-- testcases.TC002_Open_New_Account -->
+      <class name="testcases.TC001_Logout_Application">
+        <methods>
+          <include name="logoutApplication"/>
+          <include name="closeReport"/>
+          <include name="reportsGenerate"/>
+          <include name="postCond"/>
+          <include name="setData"/>
+          <include name="preCond"/>
+          <include name="testcaseDetails"/>
+        </methods>
+      </class> <!-- testcases.TC001_Logout_Application -->
+      <class name="testcases.TC003_Transfer_Funds">
+        <methods>
+          <include name="closeReport"/>
+          <include name="reportsGenerate"/>
+          <include name="setData"/>
+          <include name="postCond"/>
+          <include name="transferFundsFlow" invocation-numbers="0"/>
+          <include name="preCond"/>
+          <include name="testcaseDetails"/>
+        </methods>
+      </class> <!-- testcases.TC003_Transfer_Funds -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
