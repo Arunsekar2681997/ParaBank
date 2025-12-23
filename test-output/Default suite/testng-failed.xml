@@ -3,14 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.TC002_Open_New_Account">
+      <class name="testcases.TC005_BillPayment">
         <methods>
+          <include name="reportsGenerate"/>
+          <include name="closeReport"/>
           <include name="postCond"/>
+          <include name="billPayment"/>
           <include name="preCond"/>
-          <include name="openNewAccountFlow" invocation-numbers="0"/>
+          <include name="testcaseDetails"/>
           <include name="setData"/>
         </methods>
-      </class> <!-- testcases.TC002_Open_New_Account -->
+      </class> <!-- testcases.TC005_BillPayment -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

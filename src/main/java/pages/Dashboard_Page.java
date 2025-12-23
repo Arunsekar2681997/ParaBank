@@ -70,5 +70,22 @@ public class Dashboard_Page extends BaseClass{
 		
 		return new Transfer_Input_Screen(driver);
 	}
+	
+	public BillPayment_Input_Screen click_Bill_Pay_Option() throws InterruptedException, IOException
+	{
+		Thread.sleep(3000);
+		
+		try {
+			WebElement click_BillPay = driver.findElement(By.xpath("//a[text()=\"Bill Pay\"]"));
+			click_BillPay.click();
+			reportStep("Clicked The Bill Pay Option", "Pass");
+		} catch (Exception e) {
+			reportStep("Bill Pay Option Is Not Clicked", "Fail");
+		}
+		
+		return new BillPayment_Input_Screen(driver);
+		
+		
+	}
 
 }

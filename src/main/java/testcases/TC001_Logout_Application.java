@@ -22,7 +22,7 @@ public class TC001_Logout_Application extends BaseClass{
 		testingType = "Regression Testing";
 	}
 	
-	@Test(dataProvider="getData",groups = "logoutApplication")
+	@Test(dataProvider="getData")
 	public void logoutApplication(String username , String password) throws InterruptedException, IOException
 	{
 		Prelogin_Page pl = new Prelogin_Page(driver);

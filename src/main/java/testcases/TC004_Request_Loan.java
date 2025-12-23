@@ -20,7 +20,7 @@ public class TC004_Request_Loan extends BaseClass {
 		testingType = "Regression Testing";
     }
 
-    @Test(dataProvider = "getData",groups = "requestLoanFlow",dependsOnGroups = "openNewAccountFlow")
+    @Test(dataProvider = "getData")
     public void requestLoanFlow(String userName, String password, String loanAmount, String downPayment, String fromAccount,String loanStatus) throws InterruptedException, IOException {
         Prelogin_Page pl = new Prelogin_Page(driver);
         pl.enterUsername(userName)

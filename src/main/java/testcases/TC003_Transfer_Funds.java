@@ -20,7 +20,7 @@ public class TC003_Transfer_Funds extends BaseClass {
 		testingType = "Regression Testing";
     }
 
-    @Test(dataProvider = "getData",groups = "transferFundsFlow",dependsOnGroups = "logoutApplication")
+    @Test(dataProvider = "getData")
     public void transferFundsFlow(String userName, String password,String transferAmount, String fromAccount, String toAccount ) throws InterruptedException, IOException {
         Prelogin_Page pl = new Prelogin_Page(driver);
         pl.enterUsername(userName)
