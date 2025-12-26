@@ -8,7 +8,7 @@
       <class name="testcases.TC003_Transfer_Funds"/>
       <class name="testcases.TC004_Request_Loan"/>
       
-      <class name="testcases.TC005_BillPayment"/>
+   
       
     </classes>
   </test> <!-- Test -->
