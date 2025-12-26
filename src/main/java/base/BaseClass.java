@@ -1,11 +1,10 @@
 package base;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Arrays;
 
@@ -111,12 +110,10 @@ public class BaseClass {
 
     
     public String takeScreenshot() throws IOException {
-
         String screenshotName = "img_" + System.currentTimeMillis();
         File src = driver.getScreenshotAs(OutputType.FILE);
         File dst = new File(screenshotFolder + "/" + screenshotName + ".png");
         FileUtils.copyFile(src, dst);
-
         return screenshotName;
     }
 
