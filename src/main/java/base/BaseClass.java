@@ -11,6 +11,7 @@ import java.util.Arrays;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -43,14 +44,22 @@ public class BaseClass {
         return data;
     }
 
-
     @BeforeMethod
     public void preCond() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://parabank.parasoft.com/parabank/index.htm");
+        ChromeOptions options = new ChromeOptions();
+
+        // Disable headless mode explicitlyO
+        // options.addArguments("--headless"); // DO NOT USE this
+
+        // Optional for stability
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-gpu"); // Windows fix for Chrome
+
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.get("https://parabank.parasoft.com/parabank/index.htm");
     }
+
 
     @AfterMethod
     public void postCond() {
