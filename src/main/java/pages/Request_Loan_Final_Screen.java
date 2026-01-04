@@ -24,7 +24,7 @@ public class Request_Loan_Final_Screen extends BaseClass{
 		    WebElement loanStatus = driver.findElement(By.id("loanStatus"));
 		    String statusValue = loanStatus.getText();
 
-		    if (statusValue.contains(loanStatusValue)) {
+		    if (!statusValue.contains(loanStatusValue)) {
 		        System.out.println("Apply Loan Failed Due To Technical Reason");
 		        reportStep("Loan Apply Flow Failed Due To Technical Reason", "Fail");
 		        Assert.fail("Loan Apply Flow Failed Due To Technical Reason");

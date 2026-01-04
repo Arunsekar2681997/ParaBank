@@ -3,17 +3,17 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testcases.TC005_Bill_Payment">
+      <class name="testcases.TC004_Request_Loan">
         <methods>
           <include name="reportsGenerate"/>
           <include name="closeReport"/>
-          <include name="setData"/>
           <include name="postCond"/>
           <include name="preCond"/>
+          <include name="requestLoanFlow" invocation-numbers="0"/>
           <include name="testcaseDetails"/>
-          <include name="billPayment"/>
+          <include name="setData"/>
         </methods>
-      </class> <!-- testcases.TC005_Bill_Payment -->
+      </class> <!-- testcases.TC004_Request_Loan -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

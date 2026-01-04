@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import base.BaseClass;
 
@@ -31,6 +32,7 @@ public class OpenNewAccount_Final_Screen extends BaseClass {
 			}
 			else {
 				System.out.println("Account Is Not Created");
+				Assert.fail("Account Creation Is Failed Due to Some Technical Reason");
 			}
 			reportStep("Application navigated to Confirmation Screen", "Pass");
 		} catch (Exception e) {
