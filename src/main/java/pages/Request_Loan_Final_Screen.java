@@ -18,21 +18,24 @@ public class Request_Loan_Final_Screen extends BaseClass{
 	public Request_Loan_Final_Screen verifyLoanApplyFinalScreen(String loanStatusValue) throws InterruptedException, IOException
 	{
 		//Verify the final screen
-				try {
-					Thread.sleep(3000);
-					WebElement loanStatus = driver.findElement(By.id("loanStatus"));
-					String statusValue = loanStatus.getText();
-					if (statusValue.contains(loanStatusValue)) {
-						System.out.println("Apply Loan Failed Due To Technical Reason");
-					}
-					else {
-						System.out.println("Appply Loan Flow Getting Success");
-					}
-					reportStep("Loan Apply Flow Is Success", "Pass");
-				} catch (InterruptedException e) {
-					reportStep("Loan Apply Flow Is Not Success", "Fail");
-				}
-				return this;
+		try {
+		    Thread.sleep(3000);
+		    WebElement loanStatus = driver.findElement(By.id("loanStatus"));
+		    String statusValue = loanStatus.getText();
+
+		    if (statusValue.contains(loanStatusValue)) {
+		        System.out.println("Apply Loan Failed Due To Technical Reason");
+		        reportStep("Loan Apply Flow Failed Due To Technical Reason", "Fail");
+		    } else {
+		        System.out.println("Apply Loan Flow Getting Success");
+		        reportStep("Loan Apply Flow Is Success", "Pass");
+		    }
+
+		} catch (Exception e) {
+		    reportStep("Loan Apply Flow Failed due to exception: " + e.getMessage(), "Fail");
+		}
+		return this;
+
 	}
 
 }

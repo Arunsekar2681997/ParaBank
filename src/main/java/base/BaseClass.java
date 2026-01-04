@@ -48,10 +48,7 @@ public class BaseClass {
     public void preCond() {
         ChromeOptions options = new ChromeOptions();
 
-        // Disable headless mode explicitlyO
-        // options.addArguments("--headless"); // DO NOT USE this
-
-        // Optional for stability
+      
         options.addArguments("--start-maximized");
         options.addArguments("--disable-gpu"); // Windows fix for Chrome
 
