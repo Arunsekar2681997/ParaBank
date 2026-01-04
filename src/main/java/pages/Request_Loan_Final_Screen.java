@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import base.BaseClass;
 
@@ -26,6 +27,7 @@ public class Request_Loan_Final_Screen extends BaseClass{
 		    if (statusValue.contains(loanStatusValue)) {
 		        System.out.println("Apply Loan Failed Due To Technical Reason");
 		        reportStep("Loan Apply Flow Failed Due To Technical Reason", "Fail");
+		        Assert.fail("Loan Apply Flow Failed Due To Technical Reason");
 		    } else {
 		        System.out.println("Apply Loan Flow Getting Success");
 		        reportStep("Loan Apply Flow Is Success", "Pass");
@@ -33,6 +35,7 @@ public class Request_Loan_Final_Screen extends BaseClass{
 
 		} catch (Exception e) {
 		    reportStep("Loan Apply Flow Failed due to exception: " + e.getMessage(), "Fail");
+		    Assert.fail(e.getMessage());
 		}
 		return this;
 
